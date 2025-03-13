@@ -40,6 +40,7 @@ $conn->close();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="../style/login.css">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="validation.js" defer></script>
 </head>
 <body>

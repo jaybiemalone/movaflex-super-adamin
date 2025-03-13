@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendar</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="app.js" defer></script>
 </head>
 <body>

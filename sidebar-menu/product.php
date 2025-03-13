@@ -1,3 +1,52 @@
+<?php
+include "config.php"; // Include database connection
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $price = $_POST["price"];
+    $specialName = $_POST["special_name"]; // Not used in database, consider storing it if needed.
+    $description = ""; // If you intend to use description, define it here.
+
+    // Handle file upload
+    $targetDir = "uploads/";
+    $fileName = basename($_FILES["product_image"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $imageFileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+
+    // Allowed file types
+    $allowedTypes = ["jpg", "jpeg", "png", "gif"];
+    if (in_array($imageFileType, $allowedTypes)) {
+        if (move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFilePath)) {
+            // Insert into database
+            $sql = "INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            
+            if ($stmt) {
+                $stmt->bind_param("ssds", $name, $description, $price, $targetFilePath);
+                
+                if ($stmt->execute()) {
+                    echo "";
+                } else {
+                    echo "Error executing statement: " . $stmt->error;
+                }
+
+                $stmt->close();
+            } else {
+                echo "Error preparing statement: " . $conn->error;
+            }
+        } else {
+            echo "Error uploading file.";
+        }
+    } else {
+        echo "Invalid file type.";
+    }
+    
+    $conn->close();
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +54,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="app.js" defer></script>
 </head>
 <body>
@@ -69,19 +119,28 @@
     </ul>
   </nav>
   <main>
+    
+
+  <form method="POST" enctype="multipart/form-data">
     <div class="product">
-        <label for="">Product Picture:</label>
-        <input type="file" name="" id=""><br>
+        <label for="product_image">Product Picture:</label>
+        <input type="file" name="product_image" required><br>
         
-        <label for="">Name Product:</label>
-        <input type="text" name="" id=""><br>
+        <label for="name">Name Product:</label>
+        <input type="text" name="name" required><br>
 
-        <label for="">price:</label>
-        <input type="text" name="" id=""><br>
+        <label for="price">Price:</label>
+        <input type="text" name="price" required><br>
 
-        <label for="">Speacial Name:</label>
-        <input type="text" name="" id="">
+        <label for="special_name">Special Name:</label>
+        <input type="text" name="special_name"><br>
+
+        <button type="submit">Add Product</button>
     </div>
+</form>
+
+
+
   </main>
 </body>
 </html>
