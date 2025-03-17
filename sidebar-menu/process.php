@@ -4,27 +4,43 @@ include "config.php"; // Database connection
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['category'], $_POST['name'], $_POST['quantity'], $_POST['special_name'], $_POST['price'], $_FILES["product_image"])) {
         
-        $category = preg_replace("/[^a-zA-Z0-9_]/", "", $_POST['category']); // Sanitize category
+        // Sanitize inputs
+        $category = $conn->real_escape_string($_POST['category']);
         $product_name = trim($_POST['name']);
         $quantity = (int)$_POST['quantity'];
         $special_name = trim($_POST['special_name']);
         $price = (float)$_POST['price'];
 
-        // Validate if category table exists
+        // Validate category table
         $tableCheckQuery = "SHOW TABLES LIKE '$category'";
         $result = $conn->query($tableCheckQuery);
-        if ($result->num_rows != 1) {
+        if (!$result || $result->num_rows != 1) {
             die("Error: Selected category does not exist.");
         }
 
-        // Handle file upload
+        // Handle file upload securely
         $targetDir = "uploads/";
-        $fileName = time() . "_" . basename($_FILES["product_image"]["name"]); // Unique file name
-        $targetFilePath = $targetDir . $fileName;
-        $imageFileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
-        $allowedTypes = ["jpg", "jpeg", "png", "gif"];
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+        }
 
-        if (in_array($imageFileType, $allowedTypes) && move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFilePath)) {
+        $fileTmpPath = $_FILES["product_image"]["tmp_name"];
+        $fileOriginalName = $_FILES["product_image"]["name"];
+        $imageFileType = strtolower(pathinfo($fileOriginalName, PATHINFO_EXTENSION));
+        $allowedTypes = ["jpg", "jpeg", "png", "gif"];
+        $fileSize = $_FILES["product_image"]["size"];
+
+        // Validate file type & size
+        $imageInfo = getimagesize($fileTmpPath);
+        if (!$imageInfo || !in_array($imageFileType, $allowedTypes) || $fileSize > 2 * 1024 * 1024) {
+            die("Invalid file type or file too large (max 2MB).");
+        }
+
+        // Generate secure file name
+        $fileName = uniqid("img_", true) . "." . $imageFileType;
+        $targetFilePath = $targetDir . $fileName;
+
+        if (move_uploaded_file($fileTmpPath, $targetFilePath)) {
             
             // Check if product exists
             $check_sql = "SELECT id FROM `$category` WHERE product_name = ?";
@@ -32,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bind_param("s", $product_name);
             $stmt->execute();
             $stmt->store_result();
-            
+
             if ($stmt->num_rows > 0) {
                 // Update existing product
                 $update_sql = "UPDATE `$category` SET quantity = quantity + ?, product_picture = ?, special_name = ?, price = ? WHERE product_name = ?";
@@ -50,11 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $stmt->close();
 
-            // Redirect to product.php
-            header("Location: add-product.php");
+            // Redirect to product page
+            header("Location: add-product.php?success=1");
             exit();
         } else {
-            echo "Invalid file type or upload error.";
+            echo "File upload failed. Please try again.";
         }
     } else {
         echo "Missing required fields.";

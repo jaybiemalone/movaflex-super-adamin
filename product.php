@@ -109,7 +109,7 @@ if ($stmt) {
                                     }
                         ?>
                                     <div class="product">
-                                    <img src="<?= htmlspecialchars($imagePath); ?>" alt="<?= htmlspecialchars($product['product_name']); ?>" width="150">
+                                    <img src="<?= htmlspecialchars($imagePath); ?>" alt="<?= htmlspecialchars($product['product_name']); ?>" width="200">
                                         <h3><?= htmlspecialchars($product['product_name']); ?></h3>
                                         <p>Price: ₱ <?= htmlspecialchars($product['price']); ?></p>
                                         <p><?= htmlspecialchars($product['special_name'] ?? 'N/A'); ?></p>
