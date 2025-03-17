@@ -1,9 +1,31 @@
+<?php
+include "config.php"; // Database connection
+
+// Fetch available table names that contain 'product_name' column
+$tables = [];
+$sql = "SHOW TABLES";
+$result = $conn->query($sql);
+
+while ($row = $result->fetch_array()) {
+    $tableName = $row[0];
+    
+    // Check if 'product_name' column exists in the table
+    $checkColumnSql = "SHOW COLUMNS FROM `$tableName` LIKE 'product_name'";
+    $columnResult = $conn->query($checkColumnSql);
+
+    if ($columnResult->num_rows > 0) {
+        $tables[] = $tableName; // Store table names that have 'product_name'
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
   <script type="text/javascript" src="app.js" defer></script>
@@ -26,7 +48,7 @@
       <li>
         <button onclick=toggleSubMenu(this) class="dropdown-btn">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h207q16 0 30.5 6t25.5 17l57 57h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Zm400-160v40q0 17 11.5 28.5T600-320q17 0 28.5-11.5T640-360v-40h40q17 0 28.5-11.5T720-440q0-17-11.5-28.5T680-480h-40v-40q0-17-11.5-28.5T600-560q-17 0-28.5 11.5T560-520v40h-40q-17 0-28.5 11.5T480-440q0 17 11.5 28.5T520-400h40Z"/></svg>
-          <span>File Manage</span>
+          <span>File manage</span>
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
         </button>
         <ul class="sub-menu">
@@ -51,8 +73,35 @@
     </ul>
   </nav>
   <main>
-    <div class="container">
+  <div class="container">
+        <h2>Add a New Product</h2>
+        
+        <form action="process.php" method="post" enctype="multipart/form-data">
+            <label for="category">Select Category Table:</label>
+            <select name="category" id="category" required>
+                <option value="">-- Select a Category --</option>
+                <?php foreach ($tables as $table): ?>
+                    <option value="<?= htmlspecialchars($table) ?>"><?= htmlspecialchars($table) ?></option>
+                <?php endforeach; ?>
+            </select>
 
+            <label for="name">Product Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" required>
+
+            <label for="special_name">Special Name:</label>
+            <input type="text" name="special_name" id="special_name" required>
+
+            <label for="price">Price ($):</label>
+            <input type="number" step="0.01" name="price" id="price" required>
+
+            <label for="product_image">Product Image:</label>
+            <input type="file" name="product_image" id="product_image" accept="image/*" required>
+
+            <input type="submit" value="Submit">
+        </form>
     </div>
   </main>
 </body>
