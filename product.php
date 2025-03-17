@@ -104,15 +104,15 @@ if ($stmt) {
                                     $defaultImage = "sidebar-menu/uploads/default.jpg";
 
                                     // Check if the file exists
-                                    if (!file_exists($_SERVER['DOCUMENT_ROOT'] . "/super-admin/" . $imagePath) || empty($product['product_picture'])) {
-                                        $imagePath = $defaultImage;
+                                    if (!file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imagePath) || empty($product['product_picture'])) {
+                                        $imagePath = "super-admin/sidebar-menu/uploads/default.jpg"; // Fallback image
                                     }
                         ?>
                                     <div class="product">
-                                        <img src="<?= htmlspecialchars($imagePath); ?>" alt="<?= htmlspecialchars($product['product_name']); ?>" width="150">
+                                    <img src="<?= htmlspecialchars($imagePath); ?>" alt="<?= htmlspecialchars($product['product_name']); ?>" width="150">
                                         <h3><?= htmlspecialchars($product['product_name']); ?></h3>
                                         <p>Price: ₱ <?= htmlspecialchars($product['price']); ?></p>
-                                        <p>Special: <?= htmlspecialchars($product['special_name'] ?? 'N/A'); ?></p>
+                                        <p><?= htmlspecialchars($product['special_name'] ?? 'N/A'); ?></p>
                                         <p>Stock: <?= htmlspecialchars($product['quantity']); ?></p>
                                     </div>
                         <?php 

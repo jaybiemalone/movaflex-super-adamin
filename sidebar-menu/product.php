@@ -31,24 +31,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (in_array($imageFileType, $allowedTypes) && move_uploaded_file($_FILES["product_image"]["tmp_name"], $targetFilePath)) {
             
             // Check if product already exists
-            $check_sql = "SELECT id FROM `$category` WHERE product_name = ?";
+            $check_sql = "SELECT id, product_picture FROM `$category` WHERE product_name = ?";
             $stmt = $conn->prepare($check_sql);
             $stmt->bind_param("s", $product_name);
             $stmt->execute();
             $stmt->store_result();
+            $stmt->bind_result($product_id, $existingImage);
+            $stmt->fetch();
             
             if ($stmt->num_rows > 0) {
+                // Delete existing image if exists
+                if (!empty($existingImage) && file_exists($existingImage)) {
+                    unlink($existingImage);
+                }
+                
                 // Update existing product
                 $update_sql = "UPDATE `$category` SET quantity = quantity + ?, product_picture = ?, special_name = ?, price = ? WHERE product_name = ?";
                 $update_stmt = $conn->prepare($update_sql);
-                $update_stmt->bind_param("issds", $quantity, $targetFilePath, $special_name, $price, $product_name);
+                $update_stmt->bind_param("issds", $quantity, $fileName, $special_name, $price, $product_name);
                 $update_stmt->execute();
                 $update_stmt->close();
             } else {
                 // Insert new product
                 $insert_sql = "INSERT INTO `$category` (product_name, product_picture, quantity, special_name, price) VALUES (?, ?, ?, ?, ?)";
                 $insert_stmt = $conn->prepare($insert_sql);
-                $insert_stmt->bind_param("ssisd", $product_name, $targetFilePath, $quantity, $special_name, $price);
+                $insert_stmt->bind_param("ssisd", $product_name, $fileName, $quantity, $special_name, $price);
                 $insert_stmt->execute();
                 $insert_stmt->close();
             }
@@ -67,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
