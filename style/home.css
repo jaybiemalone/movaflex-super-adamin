@@ -137,13 +137,21 @@
         }
      }
 
+     #why-choose-us{
+        margin-top: 100px;
+     }
+
      .why-choose-us{
         display: flex;
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 20px;
         justify-content: space-between;
         align-items: center;
         gap: 10px;
+
+        a{
+            color: blue;
+        }
 
         div{
             width: 100%;
@@ -175,6 +183,37 @@
             .card p{
                 color: grey;
             }
+        }
+     }
+
+     #inquire-now{
+        margin-top: 100px;
+     }
+
+     .inquire-now{
+        margin-top: 30px;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: url(/asset/inquire_now.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 8px;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 500px;
+            height: auto;
+            background: rgba(255, 255, 255, 0.758);
+            padding: 20px;
+            border-radius: 8px;
         }
      }
 }

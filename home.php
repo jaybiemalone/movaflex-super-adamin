@@ -237,7 +237,7 @@ proudly locally made since 1976.</p>
                     </div>
 
                     </div>
-                    <a href="#">Show more</a>
+                    <a href="#">Learn more</a>
                     <div>
                         
                     <div class="card">
@@ -263,7 +263,17 @@ products can be serviced for a minimal fee.</p>
                     </div>
                 </div>
             </section>
-            <section id="" class="content"></section>
+            <section id="inquire-now" class="content">
+                <h1>INQUIRE NOW</h1>
+                <div class="inquire-now">
+                    <div>
+                        <h1>Looking for a Supplier of Reliable and Efficient Machineries and Equipment?</h1>
+                        <p>We have a wide array of products, services and solutions that’s custom-fit all for your manufacturing and logistics needs.</p>
+                        <button>INQUIRE NOW</button>
+                    </div>
+                </div>
+            </section>
+            <footer></footer>
             <body>
                 
             </body>
