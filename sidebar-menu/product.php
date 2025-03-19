@@ -136,14 +136,8 @@ $conn->close();
         <label for="name">Product Name:</label>
         <input type="text" name="name" id="name" required>
 
-        <label for="quantity">Quantity:</label>
-        <input type="number" name="quantity" id="quantity" required>
-
         <label for="special_name">Special Name:</label>
         <input type="text" name="special_name" id="special_name" required>
-
-        <label for="price">Price ($):</label>
-        <input type="number" step="0.01" name="price" id="price" required>
 
         <label for="product_image">Product Image:</label>
         <input type="file" name="product_image" id="product_image" accept="image/*" required>

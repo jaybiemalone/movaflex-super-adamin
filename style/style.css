@@ -1,17 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import url(/movaflex/style/product.css);
 @import url(/style/product-container.css);
+@import url(/style/home.css);
 
 *{
     padding: 0;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", sans-serif;
     transition: all 300ms ease-in-out;
+
 }
 
-body{
+/* .roboto-<uniquifier> {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+} */
+
+section {
+    height: 100vh;
+    box-sizing: border-box;
+    border: 1px solid black;
+  }
+  section:nth-child(2){
+    height: auto;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-}
+  }
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 12px;
+    width: auto;
+    border: none;
+  }
+  
+  .content.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
 
 .logo{
     width: 100%;
@@ -23,7 +66,6 @@ body{
 }
 
 nav {
-    background: #333;
     padding: 10px;
     margin: 0 20px;
 }
@@ -40,12 +82,14 @@ nav ul li {
 }
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: black;
     padding: 10px;
     display: block;
+    font-size: 23px;
 }
+
 nav ul li:hover > a {
-    background: #555;
+    color: green;
 }
 /* Dropdown menu styles */
 .dropdown {
@@ -55,6 +99,8 @@ nav ul li:hover > a {
     top: 100%;
     left: 0;
     min-width: 150px;
+    z-index: 1;
+    padding: 10px;
 }
 .dropdown li {
     width: 100%;
@@ -62,6 +108,7 @@ nav ul li:hover > a {
 .dropdown li a {
     padding: 10px;
     display: block;
+    color: white;
 }
 .dropdown li a:hover {
     background: #666;
@@ -77,3 +124,29 @@ main{
     width: 100%;
     padding: 20px;
 }
+
+
+/* Basic Button Style */
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Hover and Focus Effect */
+  button:hover, button:focus {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  /* Disabled State */
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
