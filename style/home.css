@@ -36,7 +36,7 @@
         gap: 20px;
         justify-content: center;
         align-items: center;
-        margin-top: 100px;
+        margin-top: 150px;
      }
 
      .card{
@@ -134,6 +134,47 @@
 
         .box:hover{
             opacity: 1;
+        }
+     }
+
+     .why-choose-us{
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+
+        div{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .card{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow: hidden;
+                border: none;
+                width: 300px;
+                height: 300px;
+                box-shadow: none;
+            }
+
+            .card h1{
+                color: rgba(0, 0, 0, 0.61);
+            }
+    
+            .card i{
+                font-size: 35px
+            }
+
+            .card p{
+                color: grey;
+            }
         }
      }
 }

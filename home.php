@@ -213,7 +213,56 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                     </div>
                 </div>
             </section>
-            <section id="" class="content"></section>
+            <section id="why-choose-us" class="content">
+                <h1>Why Choose Movaflex</h1>
+                <div class="why-choose-us">
+                    <div>
+
+                    <div class="card">
+                        <i class="fa-solid fa-flag"></i>
+                        <h1>PHILIPPINE MADE</h1>
+                        <p>Support local by buying our products,
+proudly locally made since 1976.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <h1>HIGH QUALITY MATERIALS</h1>
+                        <p>All our materials, from steel sheets to
+                        hardware, and selected with care.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-shield"></i>
+                        <h1>EXTRA DURABLE</h1>
+                        <p>Products are fully welded and reinforced and are built for durability and strength.</p>
+                    </div>
+
+                    </div>
+                    <a href="#">Show more</a>
+                    <div>
+                        
+                    <div class="card">
+                        <i class="fa-solid fa-trophy"></i>
+                        <h1>1 YEAR WARRANTY</h1>
+                        <p>Worry free with our one year warranty on
+                        mechanical defects.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-handshake"></i>
+                        <h1>LIFETIME AFTER SALES SERVICE</h1>
+                        <p>Want to give an old item a fresh coat of
+paint? Need the lock replaced? All our
+products can be serviced for a minimal fee.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <h1>FREE DELIVERY</h1>
+                        <p>Get our products delivered to your doorstep
+                        for free if you reside within Metro Manila.</p>
+                    </div>
+
+                    </div>
+                </div>
+            </section>
             <section id="" class="content"></section>
             <body>
                 
