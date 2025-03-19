@@ -76,6 +76,7 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movaflex</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 
@@ -273,11 +274,28 @@ products can be serviced for a minimal fee.</p>
                     </div>
                 </div>
             </section>
-            <footer></footer>
-            <body>
-                
-            </body>
-            <footer></footer>
+            <footer class="content">
+                <ul>
+                    <h1>Our Product</h1>
+                    <li><a href="#">Office Chair</a></li>
+                    <li><a href="#">Table</a></li>
+                    <li><a href="#">Office/Table</a></li>
+                </ul>
+                <ul>
+                    <h1>Menu Link</h1>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <ul>
+                    <h1>Contact Us</h1>
+                    <li><a href="#"><i class="fa-solid fa-location-dot"></i> About</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i> About</a></li>
+                    <li><a href="#"><i class="fa-solid fa-phone"></i> About</a></li>
+                    <li><a href="#"><i class="fa-solid fa-box"></i> About</a></li>
+                </ul>
+            </footer>
         </div>
     </main>
 
