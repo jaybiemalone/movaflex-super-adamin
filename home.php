@@ -76,6 +76,7 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movaflex</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 
     .home-banner { margin: 0; overflow: hidden; }
@@ -167,7 +168,51 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                     </div>
                 </div>
             </section>
-            <section id="" class="content"></section>
+            <section id="collection" class="content">
+            <h1>Collection</h1>
+                <div class="collection">
+                    <div class="box">
+                        <div class="pict">
+                        </div>
+                        <div class="more-details">
+                            <h1>Office Chairs</h1>
+                            <a href="">Show more <i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pict">
+                        </div>
+                        <div class="more-details">
+                            <h1>Office Chairs</h1>
+                            <a href="">Show more <i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pict">
+                        </div>
+                        <div class="more-details">
+                            <h1>Office Chairs</h1>
+                            <a href="">Show more <i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pict">
+                        </div>
+                        <div class="more-details">
+                            <h1>Office Chairs</h1>
+                            <a href="">Show more <i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="pict">
+                        </div>
+                        <div class="more-details">
+                            <h1>Office Chairs</h1>
+                            <a href="">Show more <i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section id="" class="content"></section>
             <section id="" class="content"></section>
             <body>
