@@ -175,11 +175,10 @@
         }
 
         > div{
-
+            width: 100%;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 50px;
 
             .card{
                 display: flex;
@@ -291,6 +290,7 @@
 }
 
 @media only screen and (max-width: 800px) {
+
     #overview-section{
         position: relative;
         
