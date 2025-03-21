@@ -1,0 +1,8 @@
+.contact-us-container{
+
+    height: auto;
+
+    .section-contact{
+        height: 100vh;
+    }
+}

@@ -3,6 +3,7 @@
 @import url(/movaflex/style/product.css);
 @import url(/style/product-container.css);
 @import url(/style/home.css);
+@import url(/style/contact.css);
 
 *{
     padding: 0;
