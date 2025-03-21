@@ -150,21 +150,22 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                 </div>
             </section>
             <section id="overview-section" class="content">
+             <h1 style="display: block; height: auto;">OverView</h1>
                 <div class="overview-section">
                     <div class="card">
-                        <h3>ITEMS MANUFACTURED</h3>
+                        <h3>#</h3>
                         <span>0</span>
                     </div>
                     <div class="card">
-                        <h3>CUSTOMER SERVED</h3>
+                        <h3>#</h3>
                         <span>0</span>
                     </div>
                     <div class="card">
-                        <h3>DISTRIBUTORS AND DEALERS</h3>
+                        <h3>#</h3>
                         <span>0</span>
                     </div>
                     <div class="card">
-                        <h3>YEARS IN BUSINESS</h3>
+                        <h3>#</h3>
                         <span>0</span>
                     </div>
                 </div>
@@ -274,7 +275,7 @@ products can be serviced for a minimal fee.</p>
                     </div>
                 </div>
             </section>
-            <footer class="content">
+            <footer> 
                 <ul>
                     <h1>Our Product</h1>
                     <li><a href="#">Office Chair</a></li>
