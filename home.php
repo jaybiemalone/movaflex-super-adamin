@@ -287,7 +287,7 @@ products can be serviced for a minimal fee.</p>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
                 <ul>
                     <h1>Contact Us</h1>
