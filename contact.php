@@ -100,12 +100,36 @@
                             <li></li>
                         </ul>
                     </li>
-                    <li class="info"></li>
+                    <li class="info">
+                        <h1>Contact Us</h1>
+                        <button onclick="document.getElementById('section-contact').scrollIntoView({ behavior: 'smooth' });">Contact Us</button>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="section-contact"></div>
-        <div class="section-contact"></div>
+        <div class="section-contact" id="section-contact">
+            <form action="">
+                
+                <h2 href="#section-contact">Contact Us</h2>
+
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Enter your Name:" required>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="Enter your email:" required> 
+
+                <label for="mb">Mobile Phone</label>
+                <input type="text" name="mb" placeholder="Enter your Number:" required>
+
+                <label for="cm">Company Name</label>
+                <input type="text" name="cm" placeholder="Enter your Company name:" required>
+
+                <label for="message">Send A message</label>
+                <textarea name="message" id="message" required></textarea>
+
+                <button class="button-form">Submit</button>
+            </form>
+        </div>
             <footer> 
                 <ul>
                     <h1>Our Product</h1>

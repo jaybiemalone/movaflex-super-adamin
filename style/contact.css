@@ -2,9 +2,10 @@
     animation: fadeInSlideUp 1s ease-out;
     height: auto;
 
-    .section-contact:nth-child(2),
-    .section-contact:nth-child(3),
-    .section-contact:nth-child(4){
+    .section-contact:nth-child(2){
+        height: auto;
+    }
+    .section-contact:nth-child(3){
         height: 100vh;
     }
 
@@ -60,17 +61,27 @@
 
         }
 
-        .box:nth-child(2) ul .info{
-            width: 100%;
-            height: 200px;
+        .box:nth-child(2){
+            overflow: hidden;
         }
 
+        .box:nth-child(2) ul .info{
+            width: 100%;
+            min-height: 200px;
+            height: auto;
+        }
+
+        .box:nth-child(2) ul .info ul li{
+            display: flex;
+            flex-wrap: wrap;
+        }
         .box:nth-child(2) ul .info ul:nth-child(1) {
             display: flex;
             text-align: center;
             align-items: center;
             flex-direction: column;
             padding: 10px;
+            flex-wrap: wrap;
         }
         
         .box:nth-child(2) ul .info ul:nth-child(1) li{
@@ -79,8 +90,9 @@
             justify-content: space-around;
             gap: 20px;
         }
+
         .box:nth-child(2) ul .info ul li .box-info{
-            width: 50%;
+            width: 45%;
             height: 150px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(128, 128, 128, 0.452);
@@ -104,7 +116,38 @@
             padding-top: 20px;
         }
 
+        .box:nth-child(2) ul .info:nth-child(4){
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            padding: 12rem;
+        }
+
         
+    }
+
+    .section-contact:nth-child(3){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .section-contact{
+        font-size: 12px;
+    }
+
+    .box:nth-child(2) ul .info ul li{
+        flex-direction: column;
+    }
+
+    .box:nth-child(2) ul .info ul li .box-info{
+        width: 100% !important;
+    }
+
+    .box:nth-child(2) ul .info:nth-child(4){
+        padding: 50px !important;
     }
 }
 
