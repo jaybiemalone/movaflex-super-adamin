@@ -126,9 +126,18 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
         <div class="about-container">
             <div class="about-why-shoose-us">
                 <h1>Why <span>Choose Us</span></h1>
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
+                <div class="card">
+                    <h1><i class="fa-solid fa-quote-left"></i></h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, sed?</p>
+                </div>
+                <div class="card">
+                    <h1><i class="fa-solid fa-quote-left"></i></h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, sed?</p>
+                </div>
+                <div class="card">
+                    <h1><i class="fa-solid fa-quote-left"></i></h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, sed?</p>
+                </div>
             </div>
         </div>
     </main>
