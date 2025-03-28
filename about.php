@@ -123,7 +123,14 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                 <div class="box"></div>
             </div>
         </div>
-        <div class="about-container"></div>
+        <div class="about-container">
+            <div class="about-why-shoose-us">
+                <h1>Why <span>Choose Us</span></h1>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card"></div>
+            </div>
+        </div>
     </main>
     <footer>
         <ul>
