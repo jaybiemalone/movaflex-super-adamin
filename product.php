@@ -71,6 +71,7 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,9 +79,10 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
     <link rel="stylesheet" href="style/style.css">
     <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
 
-    <div class="logo"> 
+    <div class="logo">
         <img src="asset/MOVAFLEX2.png" alt="MOVAFLEX Image" width="200">
     </div>
 
@@ -91,7 +93,9 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                 <a href="product.php">Product ▼</a>
                 <ul class="dropdown">
                     <?php foreach ($tables as $table): ?>
-                        <li><a href="product.php?table=<?= htmlspecialchars($table); ?>"><?= ucfirst(htmlspecialchars($table)); ?></a></li>
+                        <li><a
+                                href="product.php?table=<?= htmlspecialchars($table); ?>"><?= ucfirst(htmlspecialchars($table)); ?></a>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
             </li>
@@ -114,11 +118,11 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
             <p>No products found.</p>
         <?php endif; ?>
 
-        <div class="product-container" >
+        <div class="product-container">
             <?php foreach ($tables as $table): ?>
                 <div class="category content">
                     <div class="category-name">
-                        <h2><?= ucfirst(htmlspecialchars($table)); ?></h2>
+                        <h2><?= ucwords(str_replace('_', ' ', htmlspecialchars($table))); ?></h2>
                     </div>
                     <div class="product-content">
                         <?php
@@ -132,19 +136,25 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                             if ($productResult->num_rows > 0):
                                 while ($product = $productResult->fetch_assoc()):
                                     $imagePath = "sidebar-menu/uploads/" . htmlspecialchars($product['product_picture']);
-                                    $defaultImage = "sidebar-menu/uploads/default.jpg";
+                                    $defaultImage = "super-admin/sidebar-menu/uploads/default.jpg";
 
                                     // Check if the file exists
                                     if (!file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $imagePath) || empty($product['product_picture'])) {
-                                        $imagePath = "super-admin/sidebar-menu/uploads/default.jpg"; // Fallback image
+                                        $imagePath = $defaultImage; // Fallback image
                                     }
-                        ?>
+
+                                    // Set the product link, assuming it redirects to a product details page
+                                    $productLink = "product-details.php?id=" . urlencode($product['id']);
+                                    ?>
                                     <div class="product">
-                                    <img src="<?= htmlspecialchars($imagePath); ?>" alt="<?= htmlspecialchars($product['product_name']); ?>" width="200">
-                                        <h3><?= htmlspecialchars($product['product_name']); ?></h3>
-                                        <p><?= htmlspecialchars($product['special_name'] ?? 'N/A'); ?></p>
+                                        <a href="<?= htmlspecialchars($productLink); ?>">
+                                            <img src="<?= htmlspecialchars($imagePath); ?>"
+                                                alt="<?= htmlspecialchars($product['product_name']); ?>" width="200">
+                                            <h3><?= htmlspecialchars($product['product_name']); ?></h3>
+                                            <p><?= htmlspecialchars($product['special_name'] ?? 'N/A'); ?></p>
+                                        </a>
                                     </div>
-                        <?php 
+                                    <?php
                                 endwhile;
                             else:
                                 echo "<p>No products available.</p>";
@@ -153,12 +163,13 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
                         }
                         ?>
                     </div>
-
                 </div>
             <?php endforeach; ?>
         </div>
+
     </main>
 
     <script src="function/script.js"></script>
 </body>
+
 </html>

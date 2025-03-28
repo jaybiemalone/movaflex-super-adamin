@@ -75,11 +75,9 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Movaflex</title>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="/asset/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -105,49 +103,12 @@ if (!empty($selected_table) && in_array($selected_table, $tables)) {
             <li><a href="contact.php">Contact Us</a></li>
         </ul>
     </nav>
-    <main>
-        <div class="about-container">
-            <div class="about-background"></div>
-            <div class="intro-about">
-                <h1 style=" color: whitesmoke; font-size: 58px;">About Us</h1>
-                <p style=" color: whitesmoke;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> <br>
-                <a href="#" style="color: blue;">About Us</a>
-            </div>
-            <div class="about-content">
-                <div class="box">
-                    <h1>About us</h1><br>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quaerat class iure numquam
-                        enim minus fuga illo laboriosam maiores adipisci! Dolorum voluptas ipsam sequi obcaecati odio
-                        voluptatum optio sit est.</p>
-                </div>
-                <div class="box"></div>
-            </div>
-        </div>
-        <div class="about-container"></div>
-    </main>
-    <footer>
-        <ul>
-            <h1>Our Product</h1>
-            <li><a href="#">Office Chair</a></li>
-            <li><a href="#">Table</a></li>
-            <li><a href="#">Office/Table</a></li>
-        </ul>
-        <ul>
-            <h1>Menu Link</h1>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="contact.php">Contact</a></li>
-        </ul>
-        <ul>
-            <h1>Contact Us</h1>
-            <li><a href="#"><i class="fa-solid fa-location-dot"></i> About</a></li>
-            <li><a href="#"><i class="fa-solid fa-envelope"></i> About</a></li>
-            <li><a href="#"><i class="fa-solid fa-phone"></i> About</a></li>
-            <li><a href="#"><i class="fa-solid fa-box"></i> About</a></li>
-        </ul>
-    </footer>
 
+    <main>
+        
+    </main>
+
+    <script src="function/script.js"></script>
 </body>
 
 </html>

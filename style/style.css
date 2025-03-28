@@ -137,8 +137,9 @@ nav ul li:hover .dropdown {
 }
 
 main{
-    height: 100vh;
+    height: auto;
     display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
 }
